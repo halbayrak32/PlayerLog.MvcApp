@@ -1,0 +1,88 @@
+﻿@model PlayerLog.MvcApp.Models.Oyuncu
+
+@{
+	ViewBag.Title = "Duzenle";
+}
+
+<h2>Oyuncu Bilgileri Düzenleme İşlemi</h2>
+
+@using (Html.BeginForm("Duzenle", "Oyuncu", FormMethod.Post))
+{
+	@Html.HiddenFor(o => o.OyuncuId)
+	<div class="form-group">
+		@Html.LabelFor(o => o.Ad)
+		@Html.TextBoxFor(o => o.Ad, new { @class = "form-control" })
+		@Html.ValidationMessageFor(o => o.Ad)
+		<label id="lblAdHata" style="display:none;color:red">Client Side Hata-Ad</label>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(o => o.Soyad)
+		@Html.TextBoxFor(o => o.Soyad, new { @class = "form-control" })
+		@Html.ValidationMessageFor(o => o.Soyad)
+		<label id="lblSoyadHata" style="display:none;color:red">Client Side Hata-Soyad</label>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(o => o.Ulke)
+		@Html.TextBoxFor(o => o.Ulke, new { @class = "form-control" })
+		@Html.ValidationMessageFor(o => o.Ulke)
+		<label id="lblUlkeHata" style="display:none;color:red">Client Side Hata-Ulke</label>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(o => o.Yas)
+		@Html.TextBoxFor(o => o.Yas, new { @class = "form-control" })
+		@Html.ValidationMessageFor(o => o.Yas)
+		<label id="lblYasHata" style="display:none;color:red">Client Side Hata-Yas</label>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(o => o.Boy)
+		@Html.TextBoxFor(o => o.Boy, new { @class = "form-control" })
+		@Html.ValidationMessageFor(o => o.Boy)
+		<label id="lblBoyHata" style="display:none;color:red">Client Side Hata-Boy</label>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(o => o.Kilo)
+		@Html.TextBoxFor(o => o.Kilo, new { @class = "form-control" })
+		@Html.ValidationMessageFor(o => o.Kilo)
+		<label id="lblKiloHata" style="display:none;color:red">Client Side Hata-Kilo</label>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(o => o.Bolge)
+		@Html.TextBoxFor(o => o.Bolge, new { @class = "form-control" })
+		@Html.ValidationMessageFor(o => o.Bolge)
+		<label id="lblBolgeHata" style="display:none;color:red">Client Side Hata-Bolge</label>
+	</div>
+
+
+	<input type="submit" name="btnKaydet" value="Kaydet" class="btn btn-success" onclick="return BoslukKontrol()" />
+}
+
+@section scripts{
+	<script>
+		function BoslukKontrol() {
+
+			var hatayok = true;
+			if ($("#Ad").val() == "" || $("#Soyad").val() == "" || $("#Ulke").val() == "" || $("#Yas").val() == "" || $("#Boy").val() == "" || $("#Kilo").val() == "" || $("#Bolge").val() == "") {
+				$("#lblAdHata").show();
+				$("#lblSoyadHata").show();
+				$("#lblUlkeHata").show();
+				$("#lblYasHata").show();
+				$("#lblBoyHata").show();
+				$("#lblKiloHata").show();
+				$("#lblBolgeHata").show();
+				hatayok = false;
+			}
+			return hatayok;
+		}
+
+
+
+	</script>
+
+
+}

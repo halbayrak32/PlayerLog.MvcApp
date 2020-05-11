@@ -1,0 +1,45 @@
+﻿@using PlayerLog.MvcApp.Models
+@{
+
+}
+@model IEnumerable<Oyuncu>
+
+
+<h3>Oyuncu Listesi</h3>
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Ad</th>
+			<th>Soyad</th>
+			<th>Ulke</th>
+			<th>Yas</th>
+			<th>Boy</th>
+			<th>Kilo</th>
+			<th>Bolge</th>
+			<th>İslemler</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.OyuncuId</td>
+				<td>@item.Ad</td>
+				<td>@item.Soyad</td>
+				<td>@item.Ulke</td>
+				<td>@item.Yas</td>
+				<td>@item.Boy</td>
+				<td>@item.Kilo</td>
+				<td>@item.Bolge</td>
+				<td><a href="/Oyuncu/Duzenle/@item.OyuncuId" class=" btn btn-sm btn-primary">Düzenle</a> <a href="/Oyuncu/Sil/@item.OyuncuId" class=" btn btn-sm  btn-danger" onclick="return confirm('Bu Oyuncuyu Silmek İstediğinizden Emin Misiniz?')">Sil</a></td>
+			</tr>
+
+		}
+
+	</tbody>
+</table>
+

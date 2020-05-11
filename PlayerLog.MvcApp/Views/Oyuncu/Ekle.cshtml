@@ -1,0 +1,112 @@
+﻿@using PlayerLog.MvcApp.Models
+@model Oyuncu
+
+@{
+	ViewBag.Title = "Oyuncu Ekleme Islemi";
+}
+
+<h2>Oyuncu Ekleme</h2>
+<div>
+	@*<form action="/Oyuncu/Ekle" method="post">
+			<label>Oyuncu Adı</label>
+			<input type="text" name="txtAd" value="" />
+			<label>Oyuncunun Soyadı</label>
+			<input type="text" name="txtSoyad" value="" />
+			<label>Oyuncunun Ülkesi</label>
+			<input type="text" name="txtUlke" value="" />
+			<label>Oyuncunun Yaşı</label>
+			<input type="number" name="txtYas" value="" />
+			<label>Oyuncunun Boyu</label>
+			<input type="number" name="txtBoy" value="" />
+			<label>Oyuncunun Kilo</label>
+			<input type="number" name="txtKilo" value="" />
+			<label>Oyuncunun Bölgesi</label>
+			<input type="text" name="txtBolge" value="" />
+			<input type="submit" name="btnKaydet" value="Kaydet" />
+
+		</form>*@
+
+
+	@using (Html.BeginForm("Ekle", "Oyuncu", FormMethod.Post))
+	{
+		<div class="form-group">
+			@Html.LabelFor(o => o.Ad)
+			@Html.TextBoxFor(o => o.Ad, new { @class = "form-control" })
+			@Html.ValidationMessageFor(o => o.Ad)
+			<label id="lblAdHata" style="display:none;color:red">Client Side Hata-Ad</label>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(o => o.Soyad)
+			@Html.TextBoxFor(o => o.Soyad, new { @class = "form-control" })
+			@Html.ValidationMessageFor(o => o.Soyad)
+			<label id="lblSoyadHata" style="display:none;color:red">Client Side Hata-Soyad</label>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(o => o.Ulke)
+			@Html.TextBoxFor(o => o.Ulke, new { @class = "form-control" })
+			@Html.ValidationMessageFor(o => o.Ulke)
+			<label id="lblUlkeHata" style="display:none;color:red">Client Side Hata-Ulke</label>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(o => o.Yas)
+			@Html.TextBoxFor(o => o.Yas, new { @class = "form-control" })
+			@Html.ValidationMessageFor(o => o.Yas)
+			<label id="lblYasHata" style="display:none;color:red">Client Side Hata-Yas</label>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(o => o.Boy)
+			@Html.TextBoxFor(o => o.Boy, new { @class = "form-control" })
+			@Html.ValidationMessageFor(o => o.Boy)
+			<label id="lblBoyHata" style="display:none;color:red">Client Side Hata-Boy</label>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(o => o.Kilo)
+			@Html.TextBoxFor(o => o.Kilo, new { @class = "form-control" })
+			@Html.ValidationMessageFor(o => o.Kilo)
+			<label id="lblKiloHata" style="display:none;color:red">Client Side Hata-Kilo</label>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(o => o.Bolge)
+			@Html.TextBoxFor(o => o.Bolge, new { @class = "form-control" })
+			@Html.ValidationMessageFor(o => o.Bolge)
+			<label id="lblBolgeHata" style="display:none;color:red">Client Side Hata-Bolge</label>
+		</div>
+
+
+
+		<input type="submit" name="btnKaydet" value="Kaydet" class="btn btn-success" onclick="return BoslukKontrol()" />
+	}
+
+</div>
+
+@section scripts{
+	<script>
+		function BoslukKontrol() {
+
+			var hatayok = true;
+			if ($("#Ad").val() == "" || $("#Soyad").val() == "" || $("#Ulke").val() == "" || $("#Yas").val() == "" || $("#Boy").val() == "" || $("#Kilo").val() == "" || $("#Bolge").val() == "") {
+				$("#lblAdHata").show();
+				$("#lblSoyadHata").show();
+				$("#lblUlkeHata").show();
+				$("#lblYasHata").show();
+				$("#lblBoyHata").show();
+				$("#lblKiloHata").show();
+				$("#lblBolgeHata").show();
+				hatayok = false;
+			}
+			return hatayok;
+		}
+
+
+		
+	</script>
+
+
+}
+
