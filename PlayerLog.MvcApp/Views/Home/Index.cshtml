@@ -1,19 +1,29 @@
-﻿
+﻿@model PlayerLog.MvcApp.Models.Kullanici
 @{
-    Layout = null;
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-		ViewBag İsim:@ViewBag.isim
-		ViewData İsim:@ViewData["ad"]
-    </div>
-</body>
-</html>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+	<div class="form-group col-md-4">
+		@Html.LabelFor(o => o.KullaniciAdi)
+		@Html.TextBoxFor(o => o.KullaniciAdi, new { @class = "form-control" })
+
+
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(o => o.Sifre)
+		@Html.TextBoxFor(o => o.Sifre, new { @class = "form-control" })
+
+	</div>
+	<div class="form-group col-md-12">
+
+		<input type="submit" name="btnKaydet" value="Sign in" class="btn btn-primary " />
+	</div>
+}
+
+
+
+

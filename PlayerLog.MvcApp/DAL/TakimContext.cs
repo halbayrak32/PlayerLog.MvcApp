@@ -16,6 +16,7 @@ namespace PlayerLog.MvcApp.DAL
 
 
         public DbSet<Oyuncu> Oyuncular { get; set; }
+        public DbSet<Kullanici> Kullanicilar { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,6 +30,24 @@ namespace PlayerLog.MvcApp.DAL
             modelBuilder.Entity<Oyuncu>().Property(o => o.Kilo).HasColumnType("varchar").IsRequired();
             modelBuilder.Entity<Oyuncu>().Property(o => o.Bolge).HasColumnType("varchar").HasMaxLength(10).IsRequired();
 
+
+
+            modelBuilder.Entity<Kullanici>().ToTable("tblKullanicilar");
+
+            modelBuilder.Entity<Kullanici>().Property(k => k.Ad).HasColumnType("nvarchar").HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<Kullanici>().Property(k => k.Sifre).HasColumnType("nvarchar").HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<Kullanici>().Property(k => k.KullaniciAdi).HasColumnType("nvarchar").HasMaxLength(50).IsRequired();
+
+            
+
+
+
         }
+
+        
+
+        
+
+        
     }
 }

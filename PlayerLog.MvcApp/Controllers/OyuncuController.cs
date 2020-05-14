@@ -12,6 +12,8 @@ namespace PlayerLog.MvcApp.Controllers
     public class OyuncuController : Controller
     {
         // GET: Oyuncu
+
+        
         public ActionResult Index()
         {
             using (TakimContext ctx = new TakimContext())
@@ -23,6 +25,7 @@ namespace PlayerLog.MvcApp.Controllers
 
         }
 
+        
         public ActionResult Ekle()
         {
             return View();
