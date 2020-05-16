@@ -1,0 +1,22 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "admin", FormMethod.Post))
+{
+	<div class="form-group">
+		<label>Kullanıcı Adı</label>
+		<input type="text" name="txtAD" class="form-control">
+	</div>
+	<div class="form-group">
+		<label>Password</label>
+		<input type="password" name="txtPass" class="form-control" id="txtPass">
+	</div>
+	<button type="submit" class="btn btn-primary">Giriş Yap</button>
+
+
+
+}
+

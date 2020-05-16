@@ -18,6 +18,11 @@ namespace PlayerLog.MvcApp.Controllers
         {
             using (TakimContext ctx = new TakimContext())
             {
+                if (Session["Kullanici"] == null)
+                {
+                    return Redirect("/Home/Main");
+                }
+
                 var oyuncular = ctx.Oyuncular.ToList();
                 return View(oyuncular);
             }
@@ -28,6 +33,11 @@ namespace PlayerLog.MvcApp.Controllers
         
         public ActionResult Ekle()
         {
+            if (Session["Kullanici"] == null)
+            {
+                return Redirect("/Home/Main");
+            }
+
             return View();
         }
 
@@ -50,7 +60,9 @@ namespace PlayerLog.MvcApp.Controllers
             if (ModelState.IsValid)
             {
                 using (TakimContext ctx = new TakimContext())
-                {
+                {                
+                    
+
                     ctx.Oyuncular.Add(o);
                     int sonuc = ctx.SaveChanges();
                     if (sonuc > 0)

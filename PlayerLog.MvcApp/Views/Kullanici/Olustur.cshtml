@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Olustur</h2>
+<h2>Üye Ol</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-	<h4>Kullanici</h4>
+	<h4>*Hesabınız yoksa giriş yapabilmek için önce üye olmalısınız.</h4>
 	<hr />
 	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 	<div class="form-group">

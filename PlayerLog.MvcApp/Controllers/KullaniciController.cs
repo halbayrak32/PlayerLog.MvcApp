@@ -53,7 +53,7 @@ namespace PlayerLog.MvcApp.Controllers
             {
                 db.Kullanicilar.Add(kullanici);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/Home");
             }
 
             return View(kullanici);
