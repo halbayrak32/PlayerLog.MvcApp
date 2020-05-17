@@ -3,11 +3,36 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - My ASP.NET Application</title>
+	<title>@ViewBag.Title  </title>
 	<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 	<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" href="https://i.hizliresim.com/E4KAXN.jpg" type="image/x-icon" />
 	<script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
+
+<style>
+
+	body {
+		margin: 0px;
+		padding: 100px;
+		background: #fff;
+		background-image: url(https://initiate.alphacoders.com/images/753/cropped-1920-1080-753232.jpg?7975);
+		color: yellow;
+		font-family: Verdana;
+		font-size: 14px;
+	}
+
+	.body {
+		position: absolute;
+		width: auto;
+		height: auto;
+		background-size: 1920px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		z-index: 0;
+	}
+</style>
+
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -17,13 +42,14 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+				<a class=" navbar-brand" href="/Home/Main">
+				<img src="https://i.hizliresim.com/SReky2.png" width="50" height="30" style="margin:-5px 1px"  id="logo"/></a>
 				@Html.ActionLink("PlayerLogMvc", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="/Oyuncu/Ekle">Oyuncu Ekle</a></li>
-					<li><a href="/Oyuncu/Index">Oyuncu Listesi</a></li>
-					<li><a href="#">Giriş Yap</a></li>
+					<li><a href="/Oyuncu/Index">Oyuncu Listesi</a></li>					
 					<li><a href="/Kullanici/Olustur">Üye Ol</a></li>
 				</ul>
 			</div>
@@ -34,7 +60,7 @@
 		@RenderBody()
 		<hr />
 		<footer>
-			<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+			<p>&copy; @DateTime.Now.Year PlayerLog   </p>
 		</footer>
 	</div>
 

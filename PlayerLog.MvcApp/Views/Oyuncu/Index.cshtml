@@ -1,6 +1,6 @@
 ﻿@using PlayerLog.MvcApp.Models
 @{
-
+	ViewBag.Title = "Oyuncu Listesi";
 }
 @model IEnumerable<Oyuncu>
 
@@ -8,10 +8,10 @@
 <h3>Oyuncu Listesi</h3>
 
 
-<table class="table table-striped">
+<table class="table table-hover">
 	<thead>
 		<tr>
-			<th>Id</th>
+			@*<th >Id</th>*@
 			<th>Ad</th>
 			<th>Soyad</th>
 			<th>Ulke</th>
@@ -27,7 +27,7 @@
 		@foreach (var item in Model)
 		{
 			<tr>
-				<td>@item.OyuncuId</td>
+				<td style="display:none;">@item.OyuncuId</td>
 				<td>@item.Ad</td>
 				<td>@item.Soyad</td>
 				<td>@item.Ulke</td>

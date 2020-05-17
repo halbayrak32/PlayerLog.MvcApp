@@ -35,10 +35,10 @@ namespace PlayerLog.MvcApp.Areas.admin.Controllers
             {
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return Redirect("/Kullanici/Index");
-            }
+            //else
+            //{
+            //    return Redirect("/Kullanici/Index");
+            //}
 
             return View();
         }

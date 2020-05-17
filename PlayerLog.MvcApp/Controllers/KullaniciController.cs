@@ -18,6 +18,10 @@ namespace PlayerLog.MvcApp.Controllers
         // GET: Kullanici
         public ActionResult Index()
         {
+            if (Session["Pass"] == null)
+            {
+                return Redirect("/admin");
+            }
             return View(db.Kullanicilar.ToList());
         }
 
